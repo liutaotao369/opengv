@@ -158,6 +158,10 @@ ELSE()
   add_library( opengv SHARED ${OPENGV_SOURCE_FILES} ${OPENGV_HEADER_FILES} )
   add_library( random_generators SHARED test/random_generators.cpp test/random_generators.hpp test/experiment_helpers.cpp test/experiment_helpers.hpp test/time_measurement.cpp test/time_measurement.hpp )
   target_link_libraries(random_generators opengv)
+
+INSTALL(DIRECTORY include/opengv DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
+INSTALL(TARGETS opengv DESTINATION ${CMAKE_INSTALL_PREFIX}/lib )
+
 ENDIF()
 
 add_executable( test_absolute_pose test/test_absolute_pose.cpp )
